@@ -50,7 +50,7 @@ public class RFramework extends Extents {
 			d=new FirefoxDriver(profile);
 		}
 		else if(browser.equalsIgnoreCase("Chrome")){
-			System.setProperty("webdriver.chrome.driver", "D:\\office\\WebDrivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\miracle\\git\\VSTSQA\\libs\\chromedriver.exe");
 			ChromeOptions options= new ChromeOptions();
 			options.addArguments("--disable-extensions");
 			options.addArguments("--test-type");

@@ -6,7 +6,7 @@ import java.util.Properties;
 public class ReadProp{
 public Properties getDataProp() throws Exception{
 
-		File f= new File("C:\\testing\\info.properties");
+		File f= new File("C:\\Users\\miracle\\git\\VSTSQA\\info.properties");
 		FileInputStream fis = new FileInputStream(f);
 		Properties p= new Properties();
 		p.load(fis);

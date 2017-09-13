@@ -120,7 +120,21 @@ public void testing() throws Exception{
 		e.printStackTrace();
 	}
 	finally{
-		driver= new FirefoxDriver();								// for opening report
+		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver"));
+		ChromeOptions co =new ChromeOptions();
+		co.addArguments("disable-infobars");
+		Map<String, Object> prefs = new HashMap<String, Object>();
+		prefs.put("credentials_enable_service", false);
+		prefs.put("password_manager_enabled", false); 
+		prefs.put("profile.default_content_setting_values.notifications", 2);
+		co.setExperimentalOption("prefs", prefs);
+		driver=new ChromeDriver(co);
+							// for opening report
+		driver.manage().window().maximize();
+		driver.get(folder);
+		
+		
+		/* driver= new FirefoxDriver();								
 		driver.manage().window().maximize();
 		driver.get(folder);
 //		WebElement element=driver.findElement(By.xpath(".//*[@id='test-view']/div[1]/div"));
@@ -130,6 +144,7 @@ public void testing() throws Exception{
 //		ImageIO.write(screen.getImage(), "PNG", new File(sub));
 			Mail send=new Mail();
 			send.sendEmailWithAttachments(folder);
+			 */
 		
 		try {
 			Desktop.getDesktop().open(new File(prop.getProperty("path")));	// for opening excel sheet
